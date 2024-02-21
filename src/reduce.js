@@ -3,6 +3,12 @@ function reduce(array, reducer, initialValue) {
   let startIndex;
 
   if (initialValue === undefined) {
+    if (array.length === 0) {
+      throw new Error(
+        "An initial value must be provided when reducing over an empty array"
+      );
+    }
+
     accumulator = array[0];
     startIndex = 1;
   } else {
