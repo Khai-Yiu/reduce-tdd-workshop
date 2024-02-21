@@ -20,4 +20,14 @@ describe("reduce", () => {
     const sumOfNumbersInArray = reduce(array, reducer, initialValue);
     expect(sumOfNumbersInArray).toBe(14);
   });
+  it("does not modify the original array", () => {
+    const array = [1, 2, 3, 4];
+    const initialValue = 4;
+    function reducer(accumulator, currentItem) {
+      return accumulator + currentItem;
+    }
+
+    reduce(array, reducer, initialValue);
+    expect(array).toStrictEqual([1, 2, 3, 4]);
+  });
 });
