@@ -30,4 +30,13 @@ describe("reduce", () => {
     reduce(array, reducer, initialValue);
     expect(array).toStrictEqual([1, 2, 3, 4]);
   });
+  describe("Given an initial value", () => {
+    it("calls the reducer once per element in the array", () => {
+      const array = [1, 2, 3, 4];
+      const initialValue = 0;
+      const mockReducer = jest.fn();
+      reduce(array, mockReducer, initialValue);
+      expect(mockReducer).toHaveBeenCalledTimes(array.length);
+    });
+  });
 });
