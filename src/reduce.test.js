@@ -58,5 +58,17 @@ describe("reduce", () => {
       reduce(array, mockReducer);
       expect(mockReducer).toHaveBeenCalledTimes(array.length - 1);
     });
+    describe("and an empty array", () => {
+      it("throws an error", () => {
+        const array = [];
+        function reducer(accumulator, currentItem) {
+          return accumulator + currentItem;
+        }
+
+        expect(() => reduce(array, reducer)).toThrow(
+          "An initial value must be provided when reducing over an empty array"
+        );
+      });
+    });
   });
 });
