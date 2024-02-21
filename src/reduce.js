@@ -1,7 +1,16 @@
-function reduce(array, reducer) {
-  let accumulator = array[0];
+function reduce(array, reducer, initialValue) {
+  let accumulator;
+  let startIndex;
 
-  for (let i = 1; i < array.length; i++) {
+  if (initialValue === undefined) {
+    accumulator = array[0];
+    startIndex = 1;
+  } else {
+    accumulator = initialValue;
+    startIndex = 0;
+  }
+
+  for (let i = startIndex; i < array.length; i++) {
     accumulator = reducer(accumulator, array[i]);
   }
 
