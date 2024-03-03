@@ -4,6 +4,10 @@ function reduce(array, reducer, initialValue) {
 
   if (reducer === undefined) {
     throw new Error("A reducer argument must be provided");
+  } else {
+    if (typeof reducer !== "function") {
+      throw new Error("The reducer argument provided is not a function");
+    }
   }
 
   if (initialValue === undefined) {
