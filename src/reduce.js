@@ -2,6 +2,10 @@ function reduce(array, reducer, initialValue) {
   let accumulator;
   let startIndex;
 
+  if (reducer === undefined) {
+    throw new Error("A reducer argument must be provided");
+  }
+
   if (initialValue === undefined) {
     if (array.length === 0) {
       throw new Error(
