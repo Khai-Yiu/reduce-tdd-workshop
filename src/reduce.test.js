@@ -71,4 +71,13 @@ describe("reduce", () => {
       });
     });
   });
+  describe("Given no reducer function", () => {
+    it("throws an error", () => {
+      const array = [];
+
+      expect(() => reduce(array)).toThrow(
+        "A reducer argument must be provided"
+      );
+    });
+  });
 });
