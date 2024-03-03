@@ -80,4 +80,16 @@ describe("reduce", () => {
       );
     });
   });
+  describe("Given a reducer argument", () => {
+    describe("that is not a function", () => {
+      it("throws an error", () => {
+        const array = [];
+        const reducer = 1;
+
+        expect(() => reduce(array, reducer)).toThrow(
+          "The reducer argument provided is not a function"
+        );
+      });
+    });
+  });
 });
